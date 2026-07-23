@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="QuebraCuca.Aplicacao/QuebraCuca.Aplicacao.csproj" />
+  <Project Path="QuebraCuca.Dominio/QuebraCuca.Dominio.csproj" />
+  <Project Path="QuebraCuca.Infra/QuebraCuca.Infra.csproj" />
+  <Project Path="QuebraCuca.WebApp/QuebraCuca.WebApp.csproj" />
+</Solution>
