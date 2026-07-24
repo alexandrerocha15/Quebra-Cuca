@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using QuebraCuca.Aplicacao.Modulos.ModuloDiamante;
 
 namespace QuebraCuca.Aplicacao;
 
@@ -10,6 +11,6 @@ public static class InjecaoDependencia
         IConfiguration configuration
     )
     {
-
+        services.AddScoped<ServicoDiamante>();
     }
 }
