@@ -1,4 +1,4 @@
-namespace QuebraCuca.WebApp.Modulos.ModuloDiamante.ViewModels;
+namespace QuebraCuca.WebApp.Modulos.ModuloDiamante;
 
 public class DiamanteViewModel
 {
