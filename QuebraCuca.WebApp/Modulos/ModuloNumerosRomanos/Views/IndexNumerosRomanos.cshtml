@@ -1,62 +1,87 @@
+@model QuebraCuca.WebApp.Modulos.ModuloNumerosRomanos.NumerosRomanosViewModel
+
 @{
     Layout = "_Layout";
-    ViewBag.Titulo = "Conversor de Números Romanos";
+    ViewBag.Titulo = "Números Romanos";
 }
-@model NumerosRomanosViewModel
 
 <div class="container py-4">
 
+    <h4 class="text-center mb-5">
+        Converta números inteiros para romanos ou romanos para inteiros
+    </h4>
+
     <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6">
 
-            <h2 class="mb-4">Conversor de Números Romanos</h2>
+        <div class="col-lg-8">
 
-            <p class="text-muted">
-                Converta números inteiros para romanos ou números romanos para inteiros.
-            </p>
+            <div class="card shadow-sm">
 
-            <form asp-action="IndexNumerosRomanos" method="post">
+                <div class="card-body p-4">
 
-                <div class="mb-3">
+                    <form asp-action="IndexNumerosRomanos" method="post">
 
-                    <label asp-for="Entrada" class="form-label">
-                        Número
-                    </label>
+                        <div class="mb-4">
 
-                    <input asp-for="Entrada"
-                           class="form-control"
-                           placeholder="Ex: 14 ou XIV" />
+                            <label asp-for="Entrada" class="form-label fw-semibold text-primary">
+                                Número
+                            </label>
 
-                    <span asp-validation-for="Entrada"
-                          class="text-danger"></span>
+                            <input asp-for="Entrada" class="form-control form-control-lg" placeholder="Ex: 14 ou XIV" />
 
-                </div>
+                            <span asp-validation-for="Entrada" class="text-danger">
+                            </span>
 
-                <div asp-validation-summary="ModelOnly"
-                     class="text-danger mb-3">
-                </div>
+                        </div>
 
-                <button type="submit"
-                        class="btn btn-primary">
-                    Converter
-                </button>
+                        <div asp-validation-summary="All" class="text-danger mb-3">
+                        </div>
 
-            </form>
+                        <div class="d-flex justify-content-end gap-2">
 
-            @if (!string.IsNullOrWhiteSpace(Model?.Resultado))
-            {
-                <div class="mt-4">
+                            <a asp-controller="Home" asp-action="Index"
+                               class="btn btn-outline-primary rounded-pill px-4">
+                                Voltar
+                            </a>
 
-                    <h5>Resultado:</h5>
+                            <button type="submit" class="btn btn-outline-primary rounded-pill px-4">
+                                Converter
+                            </button>
 
-                    <p class="fs-4 fw-bold">
-                        @Model.Resultado
-                    </p>
+                        </div>
+
+                    </form>
 
                 </div>
-            }
+
+            </div>
 
         </div>
+
     </div>
+
+    @if (!string.IsNullOrWhiteSpace(Model?.Resultado))
+    {
+        <div class="text-center mt-5">
+
+            @if (Model.Entrada.All(c => char.IsDigit(c)))
+            {
+                <h5 class="mb-3">
+                    Em romanos:
+                </h5>
+            }
+            else
+            {
+                <h5 class="mb-3">
+                    Em números:
+                </h5>
+            }
+
+            <p class="fs-4">
+                @Model.Resultado
+            </p>
+
+        </div>
+    }
 
 </div>
