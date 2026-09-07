@@ -1,14 +1,14 @@
-@model QuebraCuca.WebApp.Modulos.ModuloCheque.ChequeViewModel
+@model QuebraCuca.WebApp.Modulos.ModuloNumerosRomanos.NumerosRomanosViewModel
 
 @{
     Layout = "_Layout";
-    ViewBag.Titulo = "Cheque por Extenso";
+    ViewBag.Titulo = "Números Romanos";
 }
 
 <div class="container py-4">
 
     <h4 class="text-center mb-5">
-        Digite um valor para vê-lo por extenso
+        Converta números inteiros para romanos ou romanos para inteiros
     </h4>
 
     <div class="row justify-content-center">
@@ -19,18 +19,17 @@
 
                 <div class="card-body p-4">
 
-                    <form asp-action="IndexCheque" method="post">
+                    <form asp-action="IndexNumerosRomanos" method="post">
 
                         <div class="mb-4">
 
-                            <label asp-for="Valor" class="form-label fw-semibold text-primary">
-                                Valor
+                            <label asp-for="Entrada" class="form-label fw-semibold text-primary">
+                                Número
                             </label>
 
-                            <input asp-for="Valor" class="form-control form-control-lg" type="number" step="0.01"
-                                   placeholder="Digite o valor" />
+                            <input asp-for="Entrada" class="form-control form-control-lg" placeholder="Ex: 14 ou XIV" />
 
-                            <span asp-validation-for="Valor" class="text-danger">
+                            <span asp-validation-for="Entrada" class="text-danger">
                             </span>
 
                         </div>
@@ -46,7 +45,7 @@
                             </a>
 
                             <button type="submit" class="btn btn-outline-primary rounded-pill px-4">
-                                Gerar
+                                Converter
                             </button>
 
                         </div>
@@ -61,16 +60,25 @@
 
     </div>
 
-    @if (!string.IsNullOrWhiteSpace(Model?.ValorPorExtenso))
+    @if (!string.IsNullOrWhiteSpace(Model?.Resultado))
     {
         <div class="text-center mt-5">
 
-            <h5 class="mb-3">
-                Valor por extenso:
-            </h5>
+            @if (Model.Entrada.All(c => char.IsDigit(c)))
+            {
+                <h5 class="mb-3">
+                    Em romanos:
+                </h5>
+            }
+            else
+            {
+                <h5 class="mb-3">
+                    Em números:
+                </h5>
+            }
 
             <p class="fs-4">
-                @Model.ValorPorExtenso
+                @Model.Resultado
             </p>
 
         </div>
