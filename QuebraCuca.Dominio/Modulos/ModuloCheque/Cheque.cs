@@ -5,8 +5,6 @@ namespace QuebraCuca.Dominio.Modulos.ModuloCheque;
 public class Cheque : EntidadeBase<Cheque>
 {
     public decimal Valor { get; set; }
-    public int Valor1  { get; set; } = 2;
-    public decimal Valor2  { get; set; } = 2.2m;
 
     public Cheque(decimal valor)
     {
