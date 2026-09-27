@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using QuebraCuca.Aplicacao.Modulos.ModuloCheque;
+using QuebraCuca.Aplicacao.Modulos.ModuloDataHumanizada;
 using QuebraCuca.Aplicacao.Modulos.ModuloDiamante;
 using QuebraCuca.Aplicacao.Modulos.ModuloNumerosRomanos;
 
@@ -16,5 +17,6 @@ public static class InjecaoDependencia
         services.AddScoped<ServicoDiamante>();
         services.AddScoped<ServicoCheque>();
         services.AddScoped<ServicoNumerosRomanos>();
+        services.AddScoped<ServicoDataHumanizada>();
     }
 }
