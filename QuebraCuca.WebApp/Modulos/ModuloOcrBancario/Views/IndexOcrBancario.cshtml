@@ -6,7 +6,6 @@
 }
 
 <div class="container py-4">
-    <h1 class="mb-4">OCR Bancário</h1>
 
     <div class="card shadow-sm">
         <div class="card-body p-4">
@@ -35,10 +34,19 @@
                            class="form-control" />
                 </div>
 
-                <button type="submit"
-                        class="btn btn-primary rounded-pill px-4">
-                    Processar arquivo
-                </button>
+                <div class="d-flex justify-content-end gap-2 mt-3">
+                    <a asp-controller="Home"
+                       asp-action="Index"
+                       class="btn btn-outline-primary rounded-pill px-4">
+                        Voltar
+                    </a>
+
+                    <button type="submit"
+                            class="btn btn-outline-primary rounded-pill px-4">
+                        Processar arquivo
+                    </button>
+                </div>
+
             </form>
 
             @if (Model.Contas.Count > 0)
@@ -59,4 +67,5 @@
 
         </div>
     </div>
+
 </div>
