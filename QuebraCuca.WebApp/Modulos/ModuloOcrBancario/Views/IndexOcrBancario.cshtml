@@ -1,0 +1,62 @@
+@model QuebraCuca.WebApp.Modulos.ModuloOcrBancario.OcrBancarioViewModel
+
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "OCR Bancário";
+}
+
+<div class="container py-4">
+    <h1 class="mb-4">OCR Bancário</h1>
+
+    <div class="card shadow-sm">
+        <div class="card-body p-4">
+
+            <p class="text-muted">
+                Envie um arquivo TXT com as representações ASCII
+                das contas bancárias.
+            </p>
+
+            <form asp-controller="OcrBancario"
+                  asp-action="IndexOcrBancario"
+                  method="post"
+                  enctype="multipart/form-data">
+
+                <div asp-validation-summary="All"
+                     class="text-danger mb-3"></div>
+
+                <div class="mb-3">
+                    <label asp-for="Arquivo" class="form-label">
+                        Arquivo TXT
+                    </label>
+
+                    <input asp-for="Arquivo"
+                           type="file"
+                           accept=".txt"
+                           class="form-control" />
+                </div>
+
+                <button type="submit"
+                        class="btn btn-primary rounded-pill px-4">
+                    Processar arquivo
+                </button>
+            </form>
+
+            @if (Model.Contas.Count > 0)
+            {
+                <div class="mt-4">
+                    <h5>Contas identificadas</h5>
+
+                    <ul class="list-group">
+                        @foreach (string conta in Model.Contas)
+                        {
+                            <li class="list-group-item">
+                                @conta
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
