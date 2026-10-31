@@ -12,6 +12,9 @@ builder.Services.AddPresentationConfig(builder.Configuration);
 
 var app = builder.Build();
 
+// Permite acessar arquivos da pasta wwwroot
+app.UseStaticFiles();
+
 // Middlewares de roteamento
 app.UseRouting();
 app.MapDefaultControllerRoute();
